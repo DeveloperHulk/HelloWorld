@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-The result is rendered here : <br>
-result : <%=request.getAttribute("result") %> 
+<h2>The result is rendered here : </h2><br>
+<h3>result :</h3> <%=request.getAttribute("result") %> 
 </body>
 </html>
