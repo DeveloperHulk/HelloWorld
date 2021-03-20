@@ -19,7 +19,7 @@ pipeline {
             {
                 echo 'Hello World'
 		echo 'Building.....'
-                sh  "mvn package"
+                bat  "mvn package"
             }
         }
 	
