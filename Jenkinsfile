@@ -43,7 +43,28 @@ pipeline {
                 }   
             }
         }
-       
+        stage('Upload to Artifactory')
+        {
+	        steps
+	        {
+			echo 'Uploading....'
+		        rtMavenDeployer (
+    			    id: 'deployer-unique-id',
+		            serverId: 'Artifactory Server',
+		            releaseRepo: 'Demo',
+		            snapshotRepo: 'Demo' 
+		        )
+		        rtMavenRun (
+		        pom: 'pom.xml',
+		        goals: 'clean install',
+		        deployerId: 'deployer-unique-id' 
+		        )
+		        rtPublishBuildInfo (
+		            serverId: 'Artifactory Server' 
+		                )
+	        }
+	}
+
         stage('Release') {
             steps 
 	    {
