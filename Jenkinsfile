@@ -4,6 +4,10 @@ pipeline {
 	{
 		maven 'Maven3'
 	}
+	
+	environment {
+		MAVEN_HOME  =  "/opt/maven"
+	}
     stages {
         stage('CheckOut')
         {
