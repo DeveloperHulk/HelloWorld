@@ -2,12 +2,9 @@ pipeline {
     agent any
 	tools
 	{
-		maven 'Maven3'
+		maven "Maven3"
 	}
 	
-	environment {
-		MAVEN_HOME  =  "/opt/maven"
-	}
     stages {
         stage('CheckOut')
         {
@@ -22,7 +19,7 @@ pipeline {
             {
                 echo 'Hello World'
 		echo 'Building.....'
-                bat 'mvn clean install'
+                sh  "mvn package"
             }
         }
 	
