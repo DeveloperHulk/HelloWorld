@@ -43,22 +43,20 @@ pipeline {
                 }   
             }
         }
-        stage('Upload to Artifactory')
+        stage('Artifactory')
         {
 	        steps
 	        {
-			echo 'Uploading....'
 		        rtMavenDeployer (
-    			    id: 'deployer-unique-id',
+    			    id: 'deployer',
 		            serverId: 'Artifactory Server',
-		            releaseRepo: 'Demo',
-		            snapshotRepo: 'Demo' 
+		            releaseRepo: 'example-repo-local',
+		            snapshotRepo: 'example-repo-local' 
 		        )
 		        rtMavenRun (
 		        pom: 'pom.xml',
 		        goals: 'clean install',
-		        deployerId: 'deployer-unique-id' 
-		        )
+		        deployerId: 'deployer' )
 		        rtPublishBuildInfo (
 		            serverId: 'Artifactory Server' 
 		                )
