@@ -65,7 +65,7 @@ pipeline {
 	        }
 	}
 	
-	  /*  stage('Build Image'){
+	   stage('Build Image'){
 		    steps{
 			    bat "docker build -t myfirstimage:$(BUILD_NUMBER) ."
 		    }
@@ -75,7 +75,7 @@ pipeline {
 		    steps{
 			    bat "docker run --name myfirstcontainer -d -p 9050:8080 myfirstimage:$(BUILD_NUMBER)"
 		    }
-	    }*/
+	    }
       /*  stage('Release') {
             steps 
 	    {
