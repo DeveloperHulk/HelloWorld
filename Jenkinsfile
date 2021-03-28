@@ -51,8 +51,8 @@ pipeline {
 		        rtMavenDeployer (
     			    id: 'deployer',
 		            serverId: 'Artifactory Server',
-		            releaseRepo: 'example-repo-local',
-		            snapshotRepo: 'example-repo-local' 
+		            releaseRepo: 'devops',
+		            snapshotRepo: 'devops' 
 		        )
 		        rtMavenRun (
 		        pom: 'pom.xml',
@@ -64,8 +64,19 @@ pipeline {
 		                )
 	        }
 	}
-
-        stage('Release') {
+	
+	    stage('Build Image'){
+		    steps{
+			    bat "docker build -t myfirstimage:$(BUILD_NUMBER) ."
+		    }
+	    }
+	    
+	     stage('Docker Deployment'){
+		    steps{
+			    bat "docker run --name myfirstcontainer -d -p 9050:8080 myfirstimage:$(BUILD_NUMBER)"
+		    }
+	    }
+      /*  stage('Release') {
             steps 
 	    {
                 echo 'Releasing...'
@@ -79,6 +90,6 @@ pipeline {
 			    bat 'xcopy /S /Q /Y /F target\\*.war "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.5\\webapps"'
 			    //bat 'C:\\apache-tomcat-8.5.61\\bin\\catalina.bat restart'
 		    }
-	    }
+	    }*/
     }
 }
