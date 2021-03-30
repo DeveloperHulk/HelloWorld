@@ -81,7 +81,7 @@ pipeline {
 	    {
                 echo 'Releasing...'
             }
-        }
+        }*/
 	stage ('deploy')
 	    {
 		    steps
@@ -90,6 +90,6 @@ pipeline {
 			    bat 'xcopy /S /Q /Y /F target\\*.war "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.5\\webapps"'
 			    //bat 'C:\\apache-tomcat-8.5.61\\bin\\catalina.bat restart'
 		    }
-	    }*/
+	    }
     }
 }
