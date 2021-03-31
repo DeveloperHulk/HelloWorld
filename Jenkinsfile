@@ -67,7 +67,7 @@ pipeline {
 	
 	   stage('Build Image'){
 		    steps{
-			    bat "docker build -t myfirstimage ."
+			    bat "docker build -t myfirstimage:${BUILD_NUMBER} ."
 		    }
 	    }
 	    stage("Cleaning Previous Deployment"){
@@ -81,7 +81,7 @@ pipeline {
 	    
 	     stage('Docker Deployment'){
 		    steps{
-			    bat "docker run --name myfirstcontainer -d -p 9050:8080 myfirstimage"
+			    bat "docker run --name myfirstcontainer -d -p 9050:8080 myfirstimage:${BUILD_NUMBER}"
 		    }
 	    }
       /*  stage('Release') {
