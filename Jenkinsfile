@@ -70,6 +70,14 @@ pipeline {
 			    bat "docker build -t myfirstimage ."
 		    }
 	    }
+	    stage("Cleaning Previous Deployment"){
+		steps{
+		catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+		bat "docker stop myfirstcontainer"
+		bat "docker rm -f myfirstcontainer"
+			}
+		}
+}
 	    
 	     stage('Docker Deployment'){
 		    steps{
