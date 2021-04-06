@@ -3,17 +3,24 @@
   
 </head>
 <body>
-<h2>Hello World!</h2>
- 
+<div class="container" style="text-align: center">
+<h2>Hello Users!</h2>
+
+<h2>Add</h2>
 <form action="add">
-<h1>Welcome to this world</h1>
-  <h2>Testing th pipeline</h2>
-<h1>This program add two numbers</h1>
-Enter First Number :<input type="number" name="t1"><br>
-Enter Second Number :<input type="number" name="t2"><br>
 
+First Number :<input type="number" name="t1" style=" border: 2px solid black"><br>
+Second Number :<input type="number" name="t2" style=" border: 2px solid black"><br>
 
-<button type="submit" style="color:red">Submit</button>
+<button type="submit" style="color:green;font-size: 16px;border:2px solid black;width: 63px;margin-top: 13px">Add</button>
+
+</form>
+<h2>Subtract</h2>
+<form action="subtract">
+First Number :<input type="number" name="t3" style=" border: 2px solid black" ><br>
+Second Number :<input type="number" name="t4" style=" border: 2px solid black"><br>
+
+<button type="submit" style="color:green;font-size: 16px;border:2px solid black;width: 75px;margin-top: 13px">Subtract</button>
 
 </form>
 
