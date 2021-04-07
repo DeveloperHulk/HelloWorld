@@ -1,6 +1,8 @@
-<html>
+<!DOCTYPE html>
 <head>
-  
+  <title>
+    Addition
+  </title>
 </head>
 <body>
 <div class="container" style="text-align: center">
