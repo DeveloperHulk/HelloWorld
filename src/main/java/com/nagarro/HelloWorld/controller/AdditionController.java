@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class AdditionController {
-    
+     @RequestMapping(value = "/add")
     public ModelAndView getAdditionResult(HttpServletRequest request , HttpServletResponse response) {
         ModelAndView mv= new ModelAndView();
         
@@ -28,7 +28,7 @@ public class AdditionController {
         mv.setViewName("add-result");
         return mv;
     }
- 
+    @RequestMapping(value = "/subtract")
     public ModelAndView getSubtractionResult(HttpServletRequest request , HttpServletResponse response) {
         ModelAndView mv= new ModelAndView();
         
